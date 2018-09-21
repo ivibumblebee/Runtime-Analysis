@@ -50,6 +50,7 @@ public class PointCP3{
 			this.X = (Math.cos(Math.toRadians(cor2)) * cor1);
 			this.Y = (Math.sin(Math.toRadians(cor2)) * cor1);
 		}
+		typeCoord = type;
 	}
 
 	// Instance methods **************************************************
@@ -74,15 +75,15 @@ public class PointCP3{
 	/**
 	 * Converts Cartesian coordinates to Polar coordinates.
 	 */
-	public void convertStorageToPolar() {
-		//???
+	public PointCP2 convertStorageToPolar() {
+		return new PointCP2('P', getRho(), getTheta());
 	}
 
 	/**
 	 * Converts Polar coordinates to Cartesian coordinates.
 	 */
-	public void convertStorageToCartesian() {
-		//???
+	public PointCP3 convertStorageToCartesian() {
+		return this;
 	}
 
 	/**
