@@ -14,7 +14,7 @@ package lab1;
  * @author Dr Timothy C. Lethbridge
  * @version July 2000
  */
-public class PointCP3 implements PointCP6 {
+public class PointCP3{
 	// Instance variables ************************************************
 	/**
 	 * Contains C(artesian) or P(olar) to identify the type of
@@ -70,6 +70,21 @@ public class PointCP3 implements PointCP6 {
 		return Math.toDegrees(Math.atan2(Y, X));
 	}
 
+
+	/**
+	 * Converts Cartesian coordinates to Polar coordinates.
+	 */
+	public void convertStorageToPolar() {
+		//???
+	}
+
+	/**
+	 * Converts Polar coordinates to Cartesian coordinates.
+	 */
+	public void convertStorageToCartesian() {
+		//???
+	}
+
 	/**
 	 * Calculates the distance in between two points using the Pythagorean theorem
 	 * (C ^ 2 = A ^ 2 + B ^ 2). Not needed until E2.30.
@@ -78,7 +93,7 @@ public class PointCP3 implements PointCP6 {
 	 * @param pointB The second point.
 	 * @return The distance between the two points.
 	 */
-	public double getDistance(PointCP6 pointB) {
+	public double getDistance(PointCP3 pointB) {
 		// Obtain differences in X and Y, sign is not important as these values
 		// will be squared later.
 		double deltaX = getX() - pointB.getX();
@@ -95,7 +110,7 @@ public class PointCP3 implements PointCP6 {
 	 * @param rotation The number of degrees to rotate the point.
 	 * @return The rotated image of the original point.
 	 */
-	public PointCP6 rotatePoint(double rotation) {
+	public PointCP3 rotatePoint(double rotation) {
 		double radRotation = Math.toRadians(rotation);
 		double X = getX();
 		double Y = getY();

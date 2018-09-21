@@ -14,14 +14,14 @@ package lab1;
  * @author Dr Timothy C. Lethbridge
  * @version July 2000
  */
-public class PointCP2 implements PointCP6 {
+public class PointCP2{
 	// Instance variables ************************************************
-	  /**
-	   * Contains C(artesian) or P(olar) to identify the type of
-	   * coordinates that are being dealt with.
-	   */
-	  private char typeCoord;
-	  
+	/**
+	 * Contains C(artesian) or P(olar) to identify the type of coordinates that are
+	 * being dealt with.
+	 */
+	private char typeCoord;
+
 	/**
 	 * Contains the current value of Rho
 	 */
@@ -38,18 +38,16 @@ public class PointCP2 implements PointCP6 {
 	 * Constructs a coordinate object
 	 */
 	public PointCP2(char type, double cor1, double cor2) {
-		if(type != 'C' && type != 'P') {
-		      throw new IllegalArgumentException();
-	    }
-		else if (type == 'P'){
+		if (type != 'C' && type != 'P') {
+			throw new IllegalArgumentException();
+		} else if (type == 'P') {
 			this.Rho = cor1;
 			this.Theta = cor2;
-		}
-		else {
+		} else {
 			this.Rho = (Math.sqrt(Math.pow(cor1, 2) + Math.pow(cor2, 2)));
 			this.Theta = Math.toDegrees(Math.atan2(cor2, cor1));
 		}
-		
+
 	}
 
 	// Instance methods **************************************************
@@ -71,6 +69,20 @@ public class PointCP2 implements PointCP6 {
 	}
 
 	/**
+	 * Converts Cartesian coordinates to Polar coordinates.
+	 */
+	public void convertStorageToPolar() {
+		//???
+	}
+
+	/**
+	 * Converts Polar coordinates to Cartesian coordinates.
+	 */
+	public void convertStorageToCartesian() {
+		//???
+	}
+
+	/**
 	 * Calculates the distance in between two points using the Pythagorean theorem
 	 * (C ^ 2 = A ^ 2 + B ^ 2). Not needed until E2.30.
 	 *
@@ -78,7 +90,7 @@ public class PointCP2 implements PointCP6 {
 	 * @param pointB The second point.
 	 * @return The distance between the two points.
 	 */
-	public double getDistance(PointCP6 pointB) {
+	public double getDistance(PointCP2 pointB) {
 		// Obtain differences in X and Y, sign is not important as these values
 		// will be squared later.
 		double deltaX = getX() - pointB.getX();
@@ -95,7 +107,7 @@ public class PointCP2 implements PointCP6 {
 	 * @param rotation The number of degrees to rotate the point.
 	 * @return The rotated image of the original point.
 	 */
-	public PointCP6 rotatePoint(double rotation) {
+	public PointCP2 rotatePoint(double rotation) {
 		double radRotation = Math.toRadians(rotation);
 		double X = getX();
 		double Y = getY();
@@ -103,7 +115,8 @@ public class PointCP2 implements PointCP6 {
 		double newX = (Math.cos(radRotation) * X) - (Math.sin(radRotation) * Y);
 		double newY = (Math.sin(radRotation) * X) + (Math.cos(radRotation) * Y);
 
-		return new PointCP2('P', (Math.sqrt(Math.pow(newX, 2) + Math.pow(newY, 2))), Math.toDegrees(Math.atan2(newY, newX)));
+		return new PointCP2('P', (Math.sqrt(Math.pow(newX, 2) + Math.pow(newY, 2))),
+				Math.toDegrees(Math.atan2(newY, newX)));
 	}
 
 	/**
@@ -112,6 +125,7 @@ public class PointCP2 implements PointCP6 {
 	 * @return A String containing information about the coordinates.
 	 */
 	public String toString() {
-		return "Stored as Polar Coordinates; Cartesian  (" + getX() + "," + getY() + "), Polar [" + getRho() + "," + getTheta() + "]" + "\n";
+		return "Stored as Polar Coordinates; Cartesian  (" + getX() + "," + getY() + "), Polar [" + getRho() + ","
+				+ getTheta() + "]" + "\n";
 	}
 }
