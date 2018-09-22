@@ -14,13 +14,8 @@ package lab1;
  * @author Dr Timothy C. Lethbridge
  * @version July 2000
  */
-public class PointCP2{
+public class PointCP2 implements PointCP6{
 	// Instance variables ************************************************
-	/**
-	 * Contains C(artesian) or P(olar) to identify the type of coordinates that are
-	 * being dealt with.
-	 */
-	private char typeCoord;
 
 	/**
 	 * Contains the current value of Rho
@@ -47,7 +42,6 @@ public class PointCP2{
 			this.Rho = (Math.sqrt(Math.pow(cor1, 2) + Math.pow(cor2, 2)));
 			this.Theta = Math.toDegrees(Math.atan2(cor2, cor1));
 		}
-		typeCoord = type;
 
 	}
 
@@ -91,7 +85,7 @@ public class PointCP2{
 	 * @param pointB The second point.
 	 * @return The distance between the two points.
 	 */
-	public double getDistance(PointCP2 pointB) {
+	public double getDistance(PointCP6 pointB) {
 		// Obtain differences in X and Y, sign is not important as these values
 		// will be squared later.
 		double deltaX = getX() - pointB.getX();
@@ -126,7 +120,7 @@ public class PointCP2{
 	 * @return A String containing information about the coordinates.
 	 */
 	public String toString() {
-		return "Stored as Polar Coordinates; Cartesian  (" + getX() + "," + getY() + "), Polar [" + getRho() + ","
+		return "Stored as Polar [" + getRho() + ","
 				+ getTheta() + "]" + "\n";
 	}
 }
