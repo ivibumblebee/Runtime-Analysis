@@ -37,7 +37,7 @@ public class PointCP6Analysis {
 			points3[i] = new PointCP3(types[i], rhos[i], thetas[i]);
 		}
 		finish = System.currentTimeMillis();
-		System.out.println("Time for instantiation with concrete class PointCP2 : " + (finish - start) + "ms");
+		System.out.println("Time for instantiation with concrete class PointCP3 : " + (finish - start) + "ms");
 
 		// analysis for getX() with concrete class PointCP2
 		start = System.currentTimeMillis();
@@ -181,7 +181,8 @@ public class PointCP6Analysis {
 			points2[i].rotatePoint(degrees2[i]);
 		}
 		finish = System.currentTimeMillis();
-		System.out.println("Time for rotatePoint(double rotation) with concrete class PointCP2: " + (finish - start) + "ms");
+		System.out.println(
+				"Time for rotatePoint(double rotation) with concrete class PointCP2: " + (finish - start) + "ms");
 
 		// analysis for rotatePoint(double rotation) with concrete class PointCP3
 		float[] degrees3 = new float[5000000];
@@ -193,7 +194,8 @@ public class PointCP6Analysis {
 			points3[i].rotatePoint(degrees3[i]);
 		}
 		finish = System.currentTimeMillis();
-		System.out.println("Time for rotatePoint(double rotation) with concrete class PointCP3: " + (finish - start) + "ms");
+		System.out.println(
+				"Time for rotatePoint(double rotation) with concrete class PointCP3: " + (finish - start) + "ms");
 
 		// analysis for toString() with concrete class PointCP2
 		start = System.currentTimeMillis();
@@ -209,7 +211,7 @@ public class PointCP6Analysis {
 			points3[i].toString();
 		}
 		finish = System.currentTimeMillis();
-		System.out.println("Time for toString() with concrete class PointCP3: " + (finish - start) + "ms");
+		System.out.println("Time for toString() with concrete class PointCP3: " + (finish - start) + "ms\n\n");
 
 	}
 }

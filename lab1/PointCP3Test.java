@@ -6,7 +6,7 @@ public class PointCP3Test {
 	public static void main(String[] args) {
 		PointCP3 point;
 		PointCP3 point2;
-		System.out.println("Testing Program for PointCP2");
+		System.out.println("Testing Program for PointCP3");
 
 		// Prompt the user for input
 		try {

@@ -35,7 +35,7 @@ public class PointCP6Test {
 		PointCP6 point;
 		PointCP6 point2;
 
-		System.out.println("Cartesian-Polar Coordinates Conversion Program");
+		System.out.println("Testing Program for PointCP6");
 
 		// Check if the user input coordinates from the command line
 		// If he did, create the PointCP object from these arguments.

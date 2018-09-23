@@ -78,7 +78,7 @@ public class PointCP2Analysis {
 		finish = System.currentTimeMillis();
 		System.out.println("Time for convertStorageToCartesian(): " + (finish - start) + "ms");
 
-		// analysis for getDistance(PointC6 pointB)
+		// analysis for getDistance(PointCP6 pointB)
 		PointCP2[] points2 = new PointCP2[5000000];
 		for (int i = 0; i < 5000000; i++) {
 			if (random.nextInt(2) == 0) {
@@ -92,7 +92,7 @@ public class PointCP2Analysis {
 			points[i].getDistance(points2[i]);
 		}
 		finish = System.currentTimeMillis();
-		System.out.println("Time for getDistance(PointC6 pointB): " + (finish - start) + "ms");
+		System.out.println("Time for getDistance(PointCP6 pointB): " + (finish - start) + "ms");
 
 		// analysis for rotatePoint(double rotation)
 		float[] degrees = new float[5000000];
@@ -112,7 +112,6 @@ public class PointCP2Analysis {
 			points[i].toString();
 		}
 		finish = System.currentTimeMillis();
-		System.out.println("Time for toString(): " + (finish - start) + "ms");
-
+		System.out.println("Time for toString(): " + (finish - start) + "ms\n\n");
 	}
 }
