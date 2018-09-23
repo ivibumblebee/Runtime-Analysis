@@ -1,12 +1,27 @@
-package lab1;
+package assignment1;
 
 import java.io.IOException;
 
-public class PointCP3Test {
+/**
+ * This class tests the functionality of the PointCP2 class. 
+ * 
+ * @author Ivana Erlich ierli042@uottawa.ca (8682437)
+ * @author David Dearden pdear036@uottawa.ca (300039831)
+ * @version September 2018
+ */
+public class PointCP2Test {
+	
+	/**
+	 * The <b>main</b> of the application. 
+	 * Prompt the user and test according the the values given.
+	 * 
+	 * @param args command line parameters
+	 */
 	public static void main(String[] args) {
-		PointCP3 point;
-		PointCP3 point2;
-		System.out.println("Testing Program for PointCP3");
+		
+		PointCP2 point;
+		PointCP2 point2;
+		System.out.println("Testing Program for PointCP2");
 
 		// Prompt the user for input
 		try {
@@ -15,6 +30,7 @@ public class PointCP3Test {
 			System.out.println("Error getting input. Ending program.");
 			return;
 		}
+
 		System.out.println("\nYou entered:\n" + point);
 		PointCP3 cartesianpoint = point.convertStorageToCartesian();
 		System.out.println("\nAfter asking to store as Cartesian:\n" + cartesianpoint);
@@ -22,13 +38,14 @@ public class PointCP3Test {
 		System.out.println("\nAfter asking to store as Polar:\n" + polarpoint);
 		System.out.println("\nNow enter another point to compute the distance");
 		try {
-			point2 = new PointCP3(args[0].toUpperCase().charAt(0), Double.valueOf(args[1]).doubleValue(),
+			point2 = new PointCP2(args[0].toUpperCase().charAt(0), Double.valueOf(args[1]).doubleValue(),
 					Double.valueOf(args[2]).doubleValue());
 		} catch (Exception e) {
 			// If we arrive here, it is because either there were no
 			// command line arguments, or they were invalid
-			if (args.length != 0)
+			if (args.length != 0) {
 				System.out.println("Invalid arguments on command line");
+			}
 
 			try {
 				point2 = getInput();
@@ -53,7 +70,7 @@ public class PointCP3Test {
 	 * @return A PointCP constructed using information obtained from the user.
 	 * @throws IOException If there is an error getting input from the user.
 	 */
-	private static PointCP3 getInput() throws IOException {
+	private static PointCP2 getInput() throws IOException {
 		byte[] buffer = new byte[1024]; // Buffer to hold byte input
 		boolean isOK = false; // Flag set if input correct
 		String theInput = ""; // Input information
@@ -69,11 +86,9 @@ public class PointCP3Test {
 				isOK = true; // flag set to true assuming input will be valid
 
 				// Prompt the user
-				if (i == 0) // First argument - type of coordinates
-				{
+				if (i == 0) { // First argument - type of coordinates
 					System.out.print("Enter the type of Coordinates you " + "are inputting ((C)artesian / (P)olar): ");
-				} else // Second and third arguments
-				{
+				} else { // Second and third arguments
 					System.out.print("Enter the value of "
 							+ (coordType == 'C' ? (i == 1 ? "X " : "Y ") : (i == 1 ? "Rho " : "Theta "))
 							+ "using a decimal point(.): ");
@@ -82,24 +97,23 @@ public class PointCP3Test {
 				// Get the user's input
 
 				// Initialize the buffer before we read the input
-				for (int k = 0; k < 1024; k++)
+				for (int k = 0; k < 1024; k++) {
 					buffer[k] = '\u0020';
+				}
 
 				System.in.read(buffer);
 				theInput = new String(buffer).trim();
 
 				// Verify the user's input
 				try {
-					if (i == 0) // First argument -- type of coordinates
-					{
+					if (i == 0) { // First argument -- type of coordinates
 						if (!((theInput.toUpperCase().charAt(0) == 'C') || (theInput.toUpperCase().charAt(0) == 'P'))) {
 							// Invalid input, reset flag so user is prompted again
 							isOK = false;
 						} else {
 							coordType = theInput.toUpperCase().charAt(0);
 						}
-					} else // Second and third arguments
-					{
+					} else { // Second and third arguments
 						// Convert the input to double values
 						if (i == 1)
 							a = Double.valueOf(theInput).doubleValue();
@@ -116,7 +130,7 @@ public class PointCP3Test {
 			isOK = false;
 		}
 		// Return a new PointCP object
-		return (new PointCP3(coordType, a, b));
+		return (new PointCP2(coordType, a, b));
 	}
 
 	/**
@@ -142,8 +156,9 @@ public class PointCP3Test {
 			// Get the user's input
 
 			// Initialize the buffer before we read the input
-			for (int k = 0; k < 1024; k++)
+			for (int k = 0; k < 1024; k++) {
 				buffer[k] = '\u0020';
+			}
 
 			System.in.read(buffer);
 			theInput = new String(buffer).trim();
@@ -160,4 +175,5 @@ public class PointCP3Test {
 		// Return the rotation angle
 		return a;
 	}
+	
 }
