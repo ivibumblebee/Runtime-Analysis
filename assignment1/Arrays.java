@@ -101,7 +101,7 @@ public class Arrays {
 	}
 
 	/**
-	 * Tests the interation performance by timing the process and averaging the results. 
+	 * Tests the iteration performance by timing the process and averaging the results. 
 	 * 
 	 * @param type the type of collection to use (Array, ArrayList, or Vector)
 	 */
